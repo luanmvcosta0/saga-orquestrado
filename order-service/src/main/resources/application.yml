@@ -1,2 +1,21 @@
 server:
   port: 3000
+
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    topic: teste
+    consumer:
+      group-id: order-group
+      auto-offset-reset: latest
+
+  data:
+    mongodb:
+      database: admin
+      uri: ${MONGO_DB_URI:mongodb://admin:12345@localhost:27017}
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
